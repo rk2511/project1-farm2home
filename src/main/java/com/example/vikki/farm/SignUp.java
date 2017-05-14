@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -65,6 +66,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         buttonRegister.setOnClickListener(this);
     }
 
+    private static boolean isValidEmail(String email) {
+        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
     private void registerUser()
     {
         final String name1 = name.getText().toString().trim();
@@ -72,16 +77,38 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
             name.setError("Name Cannot be empty!!");
             return;
         }
+
         final String mobile1 = mobile.getText().toString().trim();
-        if(TextUtils.isEmpty(mobile1)) {
+
+
+      if (!TextUtils.isEmpty(mobile1))
+        {
+              if(mobile1.length()!=10) {
+                  mobile.setError("Invalid Mobile Format!!");
+                  return;
+              }
+        }
+        else
+        {
             mobile.setError("Mobile number Cannot be empty!!");
             return;
         }
+
         final String email1 = email.getText().toString().trim();
-        if(TextUtils.isEmpty(email1)) {
-            email.setError("Email Cannot be empty!!");
+
+        if(!isValidEmail(email1))
+        {
+            //Toast.makeText(getApplicationContext(), "false", Toast.LENGTH_LONG).show();
+            email.setError("Email Cannot be empty or Invalid Format!!");
             return;
         }
+
+    //    if(TextUtils.isEmpty(email1)) {
+    //        email.setError("Email Cannot be empty!!");
+     //       return;
+    //    }
+
+
         final String pass1 = pass.getText().toString().trim();
         if(TextUtils.isEmpty(pass1)) {
             pass.setError("Password Cannot be empty!!");
@@ -90,7 +117,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         final String area = spinner.getSelectedItem().toString().trim();
         final String city = "Chennai";
 
-        progressDialog.setMessage("Registering user...");
+         progressDialog.setMessage("Registering user...");
         progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
