@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.vikki.farm">
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Farm"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignUp"
+            android:label="Farm2Home"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.vikki.farm.MAINACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".About"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity android:name=".Enquiry"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity android:name=".SendMessage"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity android:name=".Product"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity android:name=".AboutMilk"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity android:name=".PaymentActivity"
+            android:label="Farm2Home">
+        </activity>
+
+        <activity android:name=".Login"
+        android:label="Farm2Home">
+        </activity>
+
+        <activity android:name=".ProfileActivity"
+            android:label="Farm2Home">
+        </activity>
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_live_ILgsfZCZoFIKMb"
+            />
+
+
+    </application>
+
+    </manifest>

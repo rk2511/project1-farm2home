@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Farm2Home</string>
+    <string-array name="options">
+
+        <item>Products</item>
+        <item>Enquire</item>
+        <item>Refer and Earn</item>
+        <item>FAQ</item>
+        <item>Payment</item>
+        <item>About US</item>
+        <item>Contact</item>
+    </string-array>
+    <string name="area_prompt"  > Choose Your Area</string>
+    <string-array name="area">
+        <item>Nungambakkam</item>
+        <item>Kodambakkam</item>
+        <item>Arumbakkam</item>
+        <item>Vadapalani</item>
+    </string-array>
+</resources>
